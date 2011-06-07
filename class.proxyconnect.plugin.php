@@ -195,7 +195,14 @@ class ProxyConnectPlugin extends Gdn_Plugin {
       $Sender->SetData('Provider', $Provider);
       return ($Provider) ? $Provider : NULL;
    }
-   
+
+   public function DiscussionsController_Render_Before(&$Sender) {
+      $CookieName = C('Plugin.ProxyConnect.RemoteCookieName');
+	  if (!Gdn::Session()->IsValid() && !empty($_COOKIE[$CookieName])) {
+	     $this->SigninLoopback($Sender);
+      }
+   }  
+
    public function EntryController_SignIn_Handler(&$Sender) {
       if (!Gdn::Authenticator()->IsPrimary('proxy')) return;
       $this->SigninLoopback($Sender);

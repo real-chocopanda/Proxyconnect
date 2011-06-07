@@ -1,4 +1,4 @@
-<div class="CookieDomainBlock Slice" rel="dashboard/settings/proxyconnect/integration/proxyconnectmanual/cookie">
+<div class="CookieDomainBlock Slice" rel="dashboard/settings/proxyconnect/integrate/proxyconnectmanual/cookie">
    <?php echo $this->Form->Open(); ?>
    <table class="Label AltColumns">
       <thead>
@@ -26,7 +26,7 @@
                      ));
                ?>
             </td>
-         </tr>      
+         </tr>
       </tbody>
    </table>
    <?php echo $this->Form->Close(); ?>

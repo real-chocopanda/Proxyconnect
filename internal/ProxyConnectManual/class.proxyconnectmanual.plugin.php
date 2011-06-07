@@ -12,7 +12,7 @@ Contact Vanilla Forums Inc. at support [at] vanillaforums [dot] com
 $PluginInfo['ProxyConnectManual'] = array(
    'Name' => 'Manual Integration',
    'Description' => "This plugin allows manual configuration of ProxyConnect's various internal integration settings.",
-   'Version' => '1.0.2',
+   'Version' => '1.0.1',
    'RequiredApplications' => array('Vanilla' => '2.0.11'),
    'RequiredTheme' => FALSE, 
    'RequiredPlugins' => FALSE,
@@ -88,13 +88,34 @@ class ProxyConnectManualPlugin extends Gdn_Plugin {
       return $this->GetView('cookie.php');
    }
    
+   public function Controller_RemoteCookie($Sender) {
+      $Validation = new Gdn_Validation();
+      $ConfigurationModel = new Gdn_ConfigurationModel($Validation);
+      $ConfigurationModel->SetField(array('Plugin.ProxyConnect.RemoteCookieName'));
+      
+      // Set the model on the form.
+      $Sender->Form->SetModel($ConfigurationModel);
+      
+      if ($Sender->Form->AuthenticatedPostBack()) {
+         $Sender->Form->Save();
+      } else {
+         $RemoteCookieName = C('Plugin.ProxyConnect.RemoteCookieName');
+      }
+      
+      $Sender->Form->SetData(array(
+         'Plugin.ProxyConnect.RemoteCookieName' => $RemoteCookieName,
+      ));
+      
+      return $this->GetView('remoteCookie.php');
+   }
+   
    public function ProxyConnectPlugin_ConfigureIntegrationManager_Handler(&$Sender) {
       $this->ProxyConnect = $Sender;
       
       // Check that we should be handling this
-      if (strtolower($this->ProxyConnect->IntegrationManager) != strtolower($this->GetPluginIndex()))
+      if ($this->ProxyConnect->IntegrationManager != strtolower($this->GetPluginIndex()))
          return;
-      
+         
       $this->Controller = $Sender->Controller;
 
       $SubController = 'Controller_'.ucfirst($Sender->SubController);

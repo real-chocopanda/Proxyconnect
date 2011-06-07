@@ -60,6 +60,9 @@
             <?php 
                echo Gdn::Slice('dashboard/settings/proxyconnect/integration/proxyconnectmanual/cookie');
             ?>
+            <?php 
+               echo Gdn::Slice('dashboard/settings/proxyconnect/integration/proxyconnectmanual/remoteCookie');
+            ?>
          </td>
       </tbody>
    </table>
