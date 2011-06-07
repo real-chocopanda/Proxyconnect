@@ -1,0 +1,18 @@
+div.ProxyConnectWordpress {
+   border-top: 1px solid #8BC1DE;
+   padding: 20px;
+   padding-top: 0px;
+}
+
+div.ProxyConnectWordpress div.Task {
+   margin-bottom: 20px;
+}
+
+div.ProxyConnectWordpress div.Addresss {
+   
+}
+
+div.ProxyConnectWordpress p.WordpressStep {
+   font-style: italic;
+   margin-bottom: 10px;
+}

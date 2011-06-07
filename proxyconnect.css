@@ -1,0 +1,26 @@
+div.IntegrationChooser select.IntegrationChooser {
+   margin-top: 10px;
+}
+
+div.IntegrationManagerConfigure {
+   margin-top: 20px;
+}
+
+div.SmallerSetting {
+   font-size: 80%;
+}
+
+div.SmallerSetting span {
+   padding: 3px;
+   font-weight: bold;
+}
+
+div.SmallerSetting span.Ok {
+   color: #40aa00;
+   background-color: #dfffcb;
+}
+
+div.SmallerSetting span.Warn {
+   color: #ff7c25;
+   background-color: #fff1e8;
+}
