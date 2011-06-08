@@ -12,7 +12,7 @@ Contact Vanilla Forums Inc. at support [at] vanillaforums [dot] com
 $PluginInfo['ProxyConnectManual'] = array(
    'Name' => 'Manual Integration',
    'Description' => "This plugin allows manual configuration of ProxyConnect's various internal integration settings.",
-   'Version' => '1.0.1',
+   'Version' => '1.0.2',
    'RequiredApplications' => array('Vanilla' => '2.0.11'),
    'RequiredTheme' => FALSE, 
    'RequiredPlugins' => FALSE,
@@ -113,7 +113,7 @@ class ProxyConnectManualPlugin extends Gdn_Plugin {
       $this->ProxyConnect = $Sender;
       
       // Check that we should be handling this
-      if ($this->ProxyConnect->IntegrationManager != strtolower($this->GetPluginIndex()))
+      if (strtolower($this->ProxyConnect->IntegrationManager) != strtolower($this->GetPluginIndex()))
          return;
          
       $this->Controller = $Sender->Controller;

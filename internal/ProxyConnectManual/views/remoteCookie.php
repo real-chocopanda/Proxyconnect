@@ -1,4 +1,4 @@
-<div class="RemoteCookieNameBlock Slice" rel="dashboard/settings/proxyconnect/integrate/proxyconnectmanual/remoteCookie">
+<div class="RemoteCookieNameBlock Slice" rel="dashboard/settings/proxyconnect/integration/proxyconnectmanual/remoteCookie">
    <?php echo $this->Form->Open(); ?>
    <table class="Label AltColumns">
       <thead>
